@@ -145,12 +145,13 @@ impl<'a> Band<'a> {
 
         for _k in self.band.keys() {
             let k: i32 = _k + 0;
+            println!("// -- -- // | {}", k);
             
             if !is_left_initialized || left > k {
                 left = k;
                 is_left_initialized = true;
             }
-            else if !is_right_initialized || right < k {
+            if !is_right_initialized || right < k {
                 right = k;
                 is_right_initialized = true;
             }
@@ -164,7 +165,7 @@ impl<'a> Band<'a> {
                 }
             }
             else {
-                data.push("0"); println!("// // // // | 0");
+                data.push(Band::BLANK_SYMBOL); println!("// // // // | 0");
             }
         }
 
