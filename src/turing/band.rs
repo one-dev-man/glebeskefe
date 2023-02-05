@@ -154,10 +154,17 @@ impl<'a> Band<'a> {
                 right = k;
                 is_right_initialized = true;
             }
+        }
 
-            match self.band.get(_k) {
-                Some(&x) => { data.push(x); println!("// // // // | {}", x); },
-                None => { data.push(Band::BLANK_SYMBOL); println!("// // // // | 0"); }
+        for i in left..right {
+            if self.band.contains_key(&i) {
+                match self.band.get(&i) {
+                    Some(&x) => { data.push(x); println!("// // // // | {}", x); },
+                    None => { data.push("X"); println!("// // // // | X"); }
+                }
+            }
+            else {
+                data.push("0"); println!("// // // // | 0");
             }
         }
 
