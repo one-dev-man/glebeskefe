@@ -35,7 +35,6 @@ fn main() {
             Some(band_state) => {
                 println!("[{}] Result : {}", step + 1, band_state.toString());
                 println!("{}", instance.band.readCursor());
-                println!("{}", instance.band.readAt(-50));
                 println!()
             },
             None => ()
